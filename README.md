@@ -18,7 +18,8 @@ Using OpenExpression we can feed in a string like `a + b` and an object like `{ 
 
 ## Installation & Usage
 To install OpenExpression, simply run the following:
-npm install openexpression --save
+
+`npm install openexpression --save`
 
 After this, OpenExpression can be used from your code using either of the following usage patterns:
 #### Static Usage - for processing a single expression
