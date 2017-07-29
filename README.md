@@ -73,14 +73,16 @@ console.log(parser.evaluate('a < b && b < 20 && a != 0', {
 |                |                            | `true || false`          | `true`         | P_MOD      |
 |                | &#124;&#124; (Logical OR)  | `true || false`          | `true`         | P_MOD      |
 |                |                            | `true || false`          | `true`         | P_MOD      |
+| **Brackets**   | ( and )                    | `(3 + 2) * (6 - 4)`      | `10`           | B_BRACKET  |
 
 **NOTE:** Strings are only supporting using double-quotes (`"`), there is no single-quote support.
 
 #### Precedence
 All expressions are shunted before evaluations to arrange the tokens for execution. During this stage we calculate the
-order of operations (known as the Precedence). Operators with a lower precedence are evaluated first. Precedence is
-defined using a set of constant integers (exposed as `OpenExpression.Precedence`) spaced by 10, this allows any custom
-tokens to be defined anywhere amongst the existing tokens. Below are the values at time of writing:
+order of operations (known as the Precedence). Operators with a lower precedence are evaluated first. Precedence can be
+modified using brackets, operations with-in brackets will be evaluated first. Precedence is defined using a set of
+constant integers (exposed as `OpenExpression.Precedence`) spaced by 10, this allows any custom tokens to be defined
+anywhere amongst the existing tokens. Below are the values at time of writing:
 
 | Constant    | Value   |
 |-------------|---------|
