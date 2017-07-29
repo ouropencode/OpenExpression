@@ -69,10 +69,10 @@ console.log(parser.evaluate('a < b && b < 20 && a != 0', {
 |                |                            | `3 <= 3`                 | `true`         | P_COMP     |
 |                |                            | `5 <= 3`                 | `false`        | P_COMP     |
 |                | ~= (RegExp Match)          | `"TEST" ~= #t[es]{2}t#i` | `true`         | P_COMP     |
-|                | && (Logical AND)           | `true || false`          | `true`         | P_MOD      |
-|                |                            | `true || false`          | `true`         | P_MOD      |
-|                | &#124;&#124; (Logical OR)  | `true || false`          | `true`         | P_MOD      |
-|                |                            | `true || false`          | `true`         | P_MOD      |
+|                | && (Logical AND)           | `true && true`           | `true`         | P_MOD      |
+|                |                            | `true && false`          | `false`        | P_MOD      |
+|                | &#124;&#124; (Logical OR)  | `true \|\| false`        | `true`         | P_MOD      |
+|                |                            | `false \|\| false`       | `false`        | P_MOD      |
 | **Brackets**   | ( and )                    | `(3 + 2) * (6 - 4)`      | `10`           | B_BRACKET  |
 
 **NOTE:** Strings are only supporting using double-quotes (`"`), there is no single-quote support.
