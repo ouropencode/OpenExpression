@@ -1,48 +1,50 @@
-const buster = require("buster");
-const OE     = require("../");
+import buster from 'buster';
+import OpenExpression from '../lib';
+
+let OE = null;
 
 buster.testCase("Comparisons - (==) Equal", {
-    setUp: () => this.OE = new OE(),
+    setUp: () => OE = new OpenExpression(),
 
-    "is equal":     () => buster.assert.equals(this.OE.evaluate("15 == 15"), true),
-    "is not equal": () => buster.assert.equals(this.OE.evaluate("15 == 20"), false)
+	"is not equal": () => buster.assert.equals(OE.evaluate("15 == 20"), false),
+    "is equal":     () => buster.assert.equals(OE.evaluate("15 == 15"), true),
 });
 
 buster.testCase("Comparisons - (>) Greater Than", {
-    setUp: () => this.OE = new OE(),
+    setUp: () => OE = new OpenExpression(),
 
-    "is greater than":     () => buster.assert.equals(this.OE.evaluate("20 > 15"), true),
-    "is not greater than": () => buster.assert.equals(this.OE.evaluate("15 > 20"), false)
+    "is greater than":     () => buster.assert.equals(OE.evaluate("20 > 15"), true),
+    "is not greater than": () => buster.assert.equals(OE.evaluate("15 > 20"), false)
 });
 
 buster.testCase("Comparisons - (>=) Greater Than Or Equal", {
-    setUp: () => this.OE = new OE(),
+    setUp: () => OE = new OpenExpression(),
 
-    "is equal":            () => buster.assert.equals(this.OE.evaluate("20 >= 20"), true),
-    "is greater than":     () => buster.assert.equals(this.OE.evaluate("20 >= 15"), true),
-    "is not greater than": () => buster.assert.equals(this.OE.evaluate("15 >= 20"), false)
+    "is equal":            () => buster.assert.equals(OE.evaluate("20 >= 20"), true),
+    "is greater than":     () => buster.assert.equals(OE.evaluate("20 >= 15"), true),
+    "is not greater than": () => buster.assert.equals(OE.evaluate("15 >= 20"), false)
 });
 
 buster.testCase("Comparisons - (>) Less Than", {
-    setUp: () => this.OE = new OE(),
+    setUp: () => OE = new OpenExpression(),
 
-    "is less than":     () => buster.assert.equals(this.OE.evaluate("15 < 20"), true),
-    "is not less than": () => buster.assert.equals(this.OE.evaluate("20 < 15"), false)
+    "is less than":     () => buster.assert.equals(OE.evaluate("15 < 20"), true),
+    "is not less than": () => buster.assert.equals(OE.evaluate("20 < 15"), false)
 });
 
 buster.testCase("Comparisons - (>=) Less Than Or Equal", {
-    setUp: () => this.OE = new OE(),
+    setUp: () => OE = new OpenExpression(),
 
-    "is equal":         () => buster.assert.equals(this.OE.evaluate("20 <= 20"), true),
-    "is less than":     () => buster.assert.equals(this.OE.evaluate("15 <= 20"), true),
-    "is not less than": () => buster.assert.equals(this.OE.evaluate("20 <= 15"), false)
+    "is equal":         () => buster.assert.equals(OE.evaluate("20 <= 20"), true),
+    "is less than":     () => buster.assert.equals(OE.evaluate("15 <= 20"), true),
+    "is not less than": () => buster.assert.equals(OE.evaluate("20 <= 15"), false)
 });
 
 buster.testCase("Comparisons - (~=) RegExp Match", {
-    setUp: () => this.OE = new OE(),
+    setUp: () => OE = new OpenExpression(),
 
-    "matches without modifiers":       () => buster.assert.equals(this.OE.evaluate("\"our test string\" ~= #test#"), true),
-    "doesn't match without modifiers": () => buster.assert.equals(this.OE.evaluate("\"our fail string\" ~= #test#"), false),
-    "matches with modifiers":          () => buster.assert.equals(this.OE.evaluate("\"our test string\" ~= #TEST#i"), true),
-    "doesn't match with modifiers":    () => buster.assert.equals(this.OE.evaluate("\"our fail string\" ~= #TEST#i"), false)
+    "matches without modifiers":       () => buster.assert.equals(OE.evaluate("\"our test string\" ~= #test#"), true),
+    "doesn't match without modifiers": () => buster.assert.equals(OE.evaluate("\"our fail string\" ~= #test#"), false),
+    "matches with modifiers":          () => buster.assert.equals(OE.evaluate("\"our test string\" ~= #TEST#i"), true),
+    "doesn't match with modifiers":    () => buster.assert.equals(OE.evaluate("\"our fail string\" ~= #TEST#i"), false)
 });
