@@ -45,11 +45,8 @@ export default class OpenExpression {
         const output = [];
         const stack  = [];
 
-        for(let i = 0; i < tokens.length; i++) {
+        for(let i = 0; i < tokens.length; i++)
             tokens[i].token.shunt(tokens[i], stack, output);
-	        this._debug("SHUNT:", stack);
-			this._debug("OUTPS", output);
-        }
 
         while(stack.length) {
             const token = stack.shift();

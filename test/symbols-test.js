@@ -18,5 +18,5 @@ buster.testCase("Symbols - Context", {
     "simple":     () => buster.assert.equals(OE.evaluate("my_var", { my_var: 12345 }), 12345),
     "deep":       () => buster.assert.equals(OE.evaluate("test.with.depth", { test: { with: { depth: 54321 }}}), 54321),
     "multi":      () => buster.assert.equals(OE.evaluate("my_var + other_var", { my_var: 12345, other_var: 54321}), 66666),
-    "multi-deep": () => buster.assert.equals(OE.evaluate("test.with.depth + test.with.other", { test: { with: { depth: 54321, other: 12345 }}}), 66666),
+    "multi-deep": () => buster.assert.equals(OE.evaluate("test.with.depth + test.with.other", { test: { with: { depth: 54321, other: 12345 }}}), 66666)
 });

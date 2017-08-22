@@ -1,6 +1,6 @@
 {
   "name": "openexpression",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Expression parsing and evaluation, as simple as 1 + 1 = 2.",
   "main": "lib/index.js",
   "scripts": {
