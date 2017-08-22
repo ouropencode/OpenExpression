@@ -54,17 +54,6 @@ _buster2.default.testCase("Expansions - Additional Token", {
         _buster2.default.assert.equals(response.aborted, true);
         _buster2.default.assert.equals(response.aborted_value, undefined);
         _buster2.default.assert.equals(response.stack, []);
-    },
-
-    "result opcode - complex 2": function resultOpcodeComplex2() {
-        var response = OE.evaluate("response.code != 200 && response.code != 401: failure!", {
-            response: { code: "401" }
-        }, true);
-
-        _buster2.default.assert.equals(response.value, "failure");
-        _buster2.default.assert.equals(response.aborted, true);
-        _buster2.default.assert.equals(response.aborted_value, undefined);
-        _buster2.default.assert.equals(response.stack, []);
     }
 
 });

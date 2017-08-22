@@ -46,5 +46,8 @@ buster.testCase("Comparisons - (~=) RegExp Match", {
     "matches without modifiers":       () => buster.assert.equals(OE.evaluate("\"our test string\" ~= #test#"), true),
     "doesn't match without modifiers": () => buster.assert.equals(OE.evaluate("\"our fail string\" ~= #test#"), false),
     "matches with modifiers":          () => buster.assert.equals(OE.evaluate("\"our test string\" ~= #TEST#i"), true),
-    "doesn't match with modifiers":    () => buster.assert.equals(OE.evaluate("\"our fail string\" ~= #TEST#i"), false)
+    "doesn't match with modifiers":    () => buster.assert.equals(OE.evaluate("\"our fail string\" ~= #TEST#i"), false),
+
+	"matches plain string comparison":       () => buster.assert.equals(OE.evaluate("\"our test string\" ~= \"test\""), true),
+	"doesn't match plain string comparison": () => buster.assert.equals(OE.evaluate("\"our fail string\" ~= \"test\""), false)
 });

@@ -99,5 +99,12 @@ _buster2.default.testCase("Comparisons - (~=) RegExp Match", {
     },
     "doesn't match with modifiers": function doesnTMatchWithModifiers() {
         return _buster2.default.assert.equals(OE.evaluate("\"our fail string\" ~= #TEST#i"), false);
+    },
+
+    "matches plain string comparison": function matchesPlainStringComparison() {
+        return _buster2.default.assert.equals(OE.evaluate("\"our test string\" ~= \"test\""), true);
+    },
+    "doesn't match plain string comparison": function doesnTMatchPlainStringComparison() {
+        return _buster2.default.assert.equals(OE.evaluate("\"our fail string\" ~= \"test\""), false);
     }
 });
