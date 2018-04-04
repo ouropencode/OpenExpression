@@ -4,7 +4,7 @@ import {P_VALUE} from '../Precedence';
 export default class ValueSymbol extends TokenValue {
 
     constructor() {
-        super(/[a-zA-Z._]+/, P_VALUE);
+        super(/[a-zA-Z]+[a-zA-Z0-9._]*/, P_VALUE);
     }
 
 	shunt(token, stack, output) {
